@@ -1,0 +1,75 @@
+###################################################################################
+# Rewrite rules for rsyslog.com -- replace this snippet if you want to add new    #
+# rediredcts. Most importantly, this must be done for doc migration.              #
+#                                                                                 #
+# IF YOU MAKE CHANGES HERE, be sure to apply them to the public git at            #
+#     https://github.com/rsyslog/rsyslog-website                                  #
+###################################################################################
+
+###########################################################
+# DOC MIGRATION
+# We need to add redirects here for each old /doc URL to
+# the relevant new one. The new one should be in the
+# non-versioned /doc/master directory. This is how a
+# single URL is to be redirected:
+#
+# RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+# RewriteRule ^doc/oldurl /doc/master/newurl [L,NC,NS,R=301]
+#
+# The RewriteCond and RewriteRule lines need to follow
+# each other exactly as shown above.
+#
+# Be sure to uncomment the directives ;)
+###########################################################
+
+###########################################################
+# below are redirects needed for special functions or even
+# older web site migrations.
+###########################################################
+
+# rsyslog rewrite all articles based on previous basename and new permalink
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^Article(.*).phtml article$1/ [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^doc-(.*).html doc/$1.html [L,NC,NS,R=301]
+
+# rsyslog legacy rewrites
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^Downloads-req-viewdownloaddetails-lid-(.*).phtml downloads-req-viewdownloaddetails-lid-$1/ [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^Downloads-req-getit-lid-(.*).phtml downloads-req-getit-lid-$1/ [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^doc/status.html$ /project-status/ [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^doc/node20.html$ /how-to-use-tcpflood/ [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^status$ /project-status/ [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^Downloads-index-req-viewdownload-cid-1-orderby-dateD.phtml$ download/ [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^Topic8.phtml$ video-tutorials/ [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^Topic3.phtml$ faq/ [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^Topic4.phtml$ changelog/ [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^module-Static_Docs-view-f-(.*).html.phtml doc/$1.html [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^e/(.*)$ http://kb.monitorware.com/kbeventdb-list-1-Adiscon-rsyslog-rsyslogd-$1.html [L,NS,NC,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^SendArticle(.*).phtml / [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^PrintArticle(.*).phtml / [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^tool-regex regex/ [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^config-snippets/the-recipies/contact-us http://www.rsyslog.com/contact-us [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^bugs http://bugzilla.adiscon.com/ [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^http://www.rsyslog.com/g/BSD http://www.rsyslog.com/bsd-style-blocks-will-go-away-in-rsyslog-v7/ [L,NC,NS,R=301]
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^config-snippets/ http://www.rsyslog.com/guides/ [L,NC,NS,R=301]
+###################################################################################
+# END rewrite rules for rsyslog.com -- DO NOT COPY&PASTE ouside of this block!    #
+###################################################################################
