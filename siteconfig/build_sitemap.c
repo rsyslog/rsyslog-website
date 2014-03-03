@@ -11,8 +11,9 @@ int main(int argc, char *argv[])
 	printf("<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n");
 
 	while(gets(urlpart)) {
-		printf(	"<url>"
-			"<loc>http://www.rsyslog.com/doc/%s</loc>"
+		printf(	"<url>\n"
+			"<loc>http://www.rsyslog.com/doc/%s</loc>\n"
+			"<changefreq>daily</changefreq>\n"
 			"</url>\n", urlpart);
 	}
 	printf("</urlset>\n");
