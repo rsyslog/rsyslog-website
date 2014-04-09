@@ -1,6 +1,6 @@
 ###################################################################################
 # Rewrite rules for rsyslog.com -- replace this snippet if you want to add new    #
-# rediredcts. Most importantly, this must be done for doc migration.              #
+# redirects. Most importantly, this must be done for doc migration.               #
 #                                                                                 #
 # IF YOU MAKE CHANGES HERE, be sure to apply them to the public git at            #
 #     https://github.com/rsyslog/rsyslog-website                                  #
@@ -21,6 +21,9 @@
 #
 # Be sure to uncomment the directives ;)
 ###########################################################
+
+RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
+RewriteRule ^doc/imudp.html /doc/master/configuration/modules/imudp.html [L,NC,NS,R=301]
 
 ###########################################################
 # below are redirects needed for special functions or even
