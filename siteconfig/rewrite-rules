@@ -24,6 +24,7 @@
 
 RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
 RewriteRule ^doc/imudp.html /doc/master/configuration/modules/imudp.html [L,NC,NS,R=301]
+RewriteRule ^doc/omfile.html /doc/master/configuration/modules/omfile.html [L,NC,NS,R=301]
 
 ###########################################################
 # below are redirects needed for special functions or even
