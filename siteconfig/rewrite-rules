@@ -25,6 +25,7 @@
 RewriteCond %{HTTP_HOST} ^www\.rsyslog\.com$
 RewriteRule ^doc/imudp.html /doc/master/configuration/modules/imudp.html [L,NC,NS,R=301]
 RewriteRule ^doc/omfile.html /doc/master/configuration/modules/omfile.html [L,NC,NS,R=301]
+RewriteRule ^doc/impstats.html /doc/master/configuration/modules/impstats.html [L,NC,NS,R=301]
 RewriteRule ^doc/v3compatibility.html /doc/master/compatibility/v3compatibility.html [L,NC,NS,R=301]
 RewriteRule ^doc/v4compatibility.html /doc/master/compatibility/v4compatibility.html [L,NC,NS,R=301]
 RewriteRule ^doc/v5compatibility.html /doc/master/compatibility/v5compatibility.html [L,NC,NS,R=301]
