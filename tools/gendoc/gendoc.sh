@@ -4,6 +4,11 @@ if [ "$DOC_HOME" == "" ]; then
 	echo ERROR: DOC_HOME env var must be set!
 	exit 1
 fi
+if [ "$WEB_PRJ_HOME" == "" ]; then
+	echo ERROR: WEB_PRJ_HOME env var must be set!
+	echo this is the home directory of github.com/rsyslog/rsyslog-website
+	exit 1
+fi
 if [ "$SERVER_UPDATE_CMD" == "" ]; then
 	echo ERROR: SERVER_UPDATE_CMD env var must be set!
 	echo This must point to an executable command that updates the
@@ -29,8 +34,8 @@ do
 	docker run -ti --rm \
 		-u `id -u`:`id -g` \
 		-v "$DOC_HOME":/rsyslog-doc \
+		-v "$WEB_PRJ_HOME/tools/gendoc/SPHINX_EXTRA_OPTS:/rsyslog-doc/SPHINX_EXTRA_OPTS" \
 		-e STRICT="" \
-		-e SPHINX_EXTRA_OPTS='-q -D html_theme_path="/usr/lib/python2.7/site-packages,/usr/local/python2.7/dist-packages" -D html_theme="better"  -D html_theme_options.inlinecss="@media (max-width: 820px) { div.sphinxsidebar { visibility: hidden; }"' \
 		rsyslog/rsyslog_doc_gen
 	$SERVER_UPDATE_CMD $branch
 done

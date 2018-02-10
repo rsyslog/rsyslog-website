@@ -1,0 +1,4 @@
+-q
+-D html_theme_path="/usr/lib/python2.7/site-packages,/usr/local/python2.7/dist-packages"
+-D html_theme="better"
+-D html_theme_options.inlinecss="@media (max-width: 820px) { div.sphinxsidebar { visibility: hidden; }"
