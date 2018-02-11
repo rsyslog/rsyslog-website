@@ -20,7 +20,7 @@ if [ "$SERVER_UPDATE_CMD" == "" ]; then
 	exit 1
 fi
 echo "======starting doc generation======="
-docker pull rsyslog/rsyslog_doc_gen # get fresh version
+docker pull rsyslog/rsyslog_doc_gen_website # get fresh version
 cd $DOC_HOME
 
 for branch in v5-stable v7-stable v8-stable master;
@@ -36,6 +36,6 @@ do
 		-v "$DOC_HOME":/rsyslog-doc \
 		-v "$WEB_PRJ_HOME/tools/gendoc/SPHINX_EXTRA_OPTS:/rsyslog-doc/SPHINX_EXTRA_OPTS" \
 		-e STRICT="" \
-		rsyslog/rsyslog_doc_gen
+		rsyslog/rsyslog_doc_gen_website
 	$SERVER_UPDATE_CMD $branch
 done
