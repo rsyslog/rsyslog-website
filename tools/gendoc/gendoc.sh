@@ -1,3 +1,4 @@
+#!/bin/bash
 # to turn on container debug mode, add this to the docker command below:
 # -e DEBUG="on"
 if [ "$DOC_HOME" == "" ]; then
@@ -20,10 +21,13 @@ if [ "$SERVER_UPDATE_CMD" == "" ]; then
 	exit 1
 fi
 echo "======starting doc generation======="
+# note Docker container defs in rsyslog-doc/tools/buildenv
 docker pull rsyslog/rsyslog_doc_gen_website # get fresh version
 cd $DOC_HOME
+#git fetch origin
 
-for branch in v5-stable v7-stable v8-stable master;
+#for branch in v5-stable v7-stable v8-stable master;
+for branch in v8-stable master;
 do
 	echo "**** $branch ****"
 	rm -rf build
@@ -31,7 +35,8 @@ do
 	git checkout -f $branch
 	git pull
 
-	docker run -ti --rm \
+	set -x
+	docker run --rm \
 		-u `id -u`:`id -g` \
 		-v "$DOC_HOME":/rsyslog-doc \
 		-v "$WEB_PRJ_HOME/tools/gendoc/SPHINX_EXTRA_OPTS:/rsyslog-doc/SPHINX_EXTRA_OPTS" \
